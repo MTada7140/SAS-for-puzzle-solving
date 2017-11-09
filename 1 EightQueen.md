@@ -22,8 +22,21 @@
 ![SASpgm selection](/images/SASpgmSelection.jpg)
 ### With executing program above, 92 'solutions' will be got as follows.
 ![SASdataset1](/images/SASdatasetEightQueen.jpg)
-
- 
-## 1-5.Eliminating 'duplicate' solutions
+## 1-5.Eliminating 'duplicated' solutions
+### So far we have got the 'solutions' of Eight Queen puzzle which satisfy all three rules. Is that all? I don't think so. Because there would be duplicate solutions included in the current dataset if we rotate one solution 90 degrees right or left, there would be the same solutions contained. It is not good for us to leave here under this situation. I would like to have pure 'distinct' solutions only. In order to do this, I created a program shown below;
+![SASpgm selection](/images/SASpgmSelection2.jpg)
+### In this program, I checked 8 'identical' rotated patterns for every single 'solutions'. They are 1)Original sequence, 2-4)Sequences rotated 90,180,270 degrees, 5)Sequence flipped right side left 6-8) Flipped sequences rotated 90,180,270 degrees. And in order to eliminate 'identical' solutions, I used two sorting procedures built in SAS. First one is on the very last of the code shown above 'call sortc', which is used for sort character values in the array. With the result, we get data set like this and it is easy to find 'duplicated' solutions.
+![SASdataset2](/images/SASdatasetEightQueen2.jpg)
+### If you look at the image above carefully, you will notice that there are sevral lines which contain identical set of sequences. 
+### Another thing we must use is proc sort in the following code;
+![SASpgm sorting](/images/SASpgmProcSort.jpg)
+### Proc sort can be used for sorting of dataset but it can be used for eliminationg duplicate observations(in the other language it is called 'record')from dataset. It is powerful and quite useful. In this case I used 'nodup' option in order to eliminate duplicated solutions. As the result of this elimination, we finally get 12 'distinct' solutions.
 ## 1-6.Print solutions
+### The final task of this project is to print out the set of solutions. Agin, to do this thing, there are several options including use the external nice drawing programs. But in this case, I would like to use SAS program to print it. In SAS, in order to get nice looking output, there is a built in procedure called proc format. Using this, you can get much flexibility on expressing you have got from SAS. In this program I created a user defined format called "$Queen"('$' sign is required in order to show this format is applicable for character data only) to print the final solutions of eight queen. The coding of proc format is shown below;
+![SASpgm foramt](/images/SASpgmProcFormat.jpg)
+### And using this format, you can print the final solution with following code;
+![SASpgm printing](/images/SASpgmProcPrint.jpg)
+![Final result](/images/SASresultProcPrint.jpg)
+
+
 
