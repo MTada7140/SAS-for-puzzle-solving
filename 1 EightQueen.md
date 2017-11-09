@@ -12,7 +12,9 @@
 ![Permutation Algorithm2](/images/permutation2.jpg)
 ### To apply this manipulation on the entire set of existing permutations, we can get the right set of permutations with length of four. To convert this process into SAS program, it looks like as following.
 ![SASpgm Permutation](/images/SASpgmPermute.jpg)
-### In the program above, we reead SAS dataset 'permute3' as input and output 'permute4'. In the input dataset, there is a variable(in the different language, it is called 'column' or 'item') named 'newSerie' which contains one permutation sequence with length of three. And in the 'Do loop' in the middle insert number '4' in the all possible positions of input permutation. 
+### In the program above, we reead SAS dataset 'permute3' as input and output 'permute4'. In the input dataset, there is a variable(in the different language, it is called 'column' or 'item') named 'newSerie' which contains one permutation sequence with length of three. And in the 'Do loop' in the middle insert number '4' in the all possible positions of input permutation.
+### But with the sample above, we must copy and paste the code above several times and modify them. It would not be a good programming practice. To avoid this, I introduced 'macro' feature of SAS program and created the code below.  
+![SASpgm Permutation2](/images/SASpgmPermute2.jpg)
 
 
 ## 1-4.Selecting solutions from whole permutations
