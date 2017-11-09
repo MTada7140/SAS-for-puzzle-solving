@@ -20,6 +20,8 @@
 ## 1-4.Selecting solutions from whole permutations
 ### The next step for solving 'Eight Queen' is the selection of permutations which stisfy all the rules. All the rules? We already have the candidates of solutions which sutisfy the first two rules ie. *"no two queens share the same row, column"*. The remaining task is only to check whether our potential solutions satisfy *'no two queens share the same diagonal'* only. Checking of sharing diagonal is not so difficult. We must check the horizontal distance and vertical distance of every two queens. If the two distances are same, then the two queens share the same diagonal hence the permutation must be eliminated from theb set of solutions. SAS data set I created for this is shown below;
 ![SASpgm selection](/images/SASpgmSelection.jpg)
+### With executing program above, 92 'solutions' will be got as follows.
+![SASdataset1](/images/SASdatasetEightQueen.jpg)
 
  
 ## 1-5.Eliminating 'duplicate' solutions
