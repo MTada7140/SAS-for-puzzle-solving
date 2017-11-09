@@ -18,6 +18,10 @@
 ### All the basic ideas are the same as previous sample, but generalisation by 'macro variable' and 'macro programming' were used in the later one. The last command line "%permute(start=2, stop= 8);" invokes the macro program above and iterates the program seven times with varying macro variable '&num' from 2 to 8. Thus, we can get the entire set of permutations with length of eight. 
 
 ## 1-4.Selecting solutions from whole permutations
+### The next step for solving 'Eight Queen' is the selection of permutations which stisfy all the rules. All the rules? We already have the candidates of solutions which sutisfy the first two rules ie. *"no two queens share the same row, column"*. The remaining task is only to check whether our potential solutions satisfy *'no two queens share the same diagonal'* only. Checking of sharing diagonal is not so difficult. We must check the horizontal distance and vertical distance of every two queens. If the two distances are same, then the two queens share the same diagonal hence the permutation must be eliminated from theb set of solutions. SAS data set I created for this is shown below;
+![SASpgm selection](/images/SASpgmSelection.jpg)
+
+ 
 ## 1-5.Eliminating 'duplicate' solutions
 ## 1-6.Print solutions
 
