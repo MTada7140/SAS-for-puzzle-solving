@@ -30,12 +30,13 @@
 ### If you look at the image above carefully, you will notice that there are sevral lines which contain identical set of sequences. 
 ### Another thing we must use is proc sort in the following code;
 ![SASpgm sorting](/images/SASpgmProcSort.jpg)
-### Proc sort can be used for sorting of dataset but it can be used for eliminationg duplicate observations(in the other language it is called 'record')from dataset. It is powerful and quite useful. In this case I used 'nodup' option in order to eliminate duplicated solutions. As the result of this elimination, we finally get 12 'distinct' solutions.
+### Proc sort can be used for sorting of dataset but it can be used for eliminationg duplicate observations(in the other language it is called 'record')from dataset as well. It is powerful and quite useful. In this case I used 'nodup' option in order to eliminate duplicated solutions. As the result of this elimination, we finally get 12 'distinct' solutions.
 ## 1-6.Print solutions
-### The final task of this project is to print out the set of solutions. Agin, to do this thing, there are several options including use the external nice drawing programs. But in this case, I would like to use SAS program to print it. In SAS, in order to get nice looking output, there is a built in procedure called proc format. Using this, you can get much flexibility on expressing you have got from SAS. In this program I created a user defined format called "$Queen"('$' sign is required in order to show this format is applicable for character data only) to print the final solutions of eight queen. The coding of proc format is shown below;
+### The final task of this project is to print out the set of solutions. Again, to do this thing, there would be several options including use the external nice drawing programs. But in this case, I would like to stick to SAS program to do this. In SAS, in order to get nice looking output, there is a built in procedure called proc format. Using this, you can get much flexibility on expressing you have got from SAS. In this program I created a user defined format called "$Queen"('$' sign is required in order to show this format is applicable for character data only) to print the final solutions of eight queen. The coding of proc format is shown below;
 ![SASpgm foramt](/images/SASpgmProcFormat.jpg)
 ### And using this format, you can print the final solution with following code;
 ![SASpgm printing](/images/SASpgmProcPrint.jpg)
+### in this code, I used 'noobs' option in order to get print result without observsation(=record) number.
 ![Final result](/images/SASresultProcPrint.jpg)
 
 
