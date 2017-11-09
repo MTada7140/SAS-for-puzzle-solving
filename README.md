@@ -5,7 +5,7 @@ In this repository I'd like to show two sample SAS programs for solving puzzle. 
 1. Data step coding
 2. Using of functions in data step
 3. Using of arrays and loop
-4. Using of basic procedures(sort, print)
+4. Using of basic procedures(sort, print, format)
 5. Using of macro variables
 6. Basic SAS macro programming
  
