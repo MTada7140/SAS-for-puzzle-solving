@@ -22,9 +22,10 @@
 ![SASpgm Permutation2](/images/SASpgmPermute3.jpg)
 ### All the basic ideas are the same as previous sample, but generalisation by 'macro variable' and 'macro programming' were used in the later one. The last command line "%permute(start=2, stop= 9);" invokes the macro program above and iterates the program seven times with varying macro variable '&num' from 2 to 9. Thus, we can get the entire set of permutations with length of nine. 
 
-## 1-4.Selecting solutions from whole permutations
-### The next step for solving 'Eight Queen' is the selection of permutations which stisfy all the rules. All the rules? We already have the candidates of solutions which sutisfy the first two rules ie. *"no two queens share the same row, column"*. The remaining task is only to check whether our potential solutions satisfy *'no two queens share the same diagonal'* only. Checking of sharing diagonal is not so difficult. We must check the horizontal distance and vertical distance of every two queens. If the two distances are same, then the two queens share the same diagonal hence the permutation must be eliminated from theb set of solutions. SAS data set I created for this is shown below;
-![SASpgm selection](/images/SASpgmSelection.jpg)
+## 1-5.Selecting solutions from whole permutations
+### After generating permutations, the next step for solving 'Sudoku' is the selection of permutations which comply to the initial setting of problem and stisfy all the rules. But in this stage we cannot get the final solution(s) because in this stage we only do the checking of single lines only. In order to get final solution(s), we must combine nine candidate solutions as a set and do the checking. But we must do it on the seperate step on the next section. SAS program I created for this section is shown below;
+![SASpgm selection](/images/SASpgmSelection31.jpg)
+![SASpgm selection](/images/SASpgmSelection32.jpg)
 ### With executing program above, 92 'solutions' will be got as follows.
 ![SASdataset1](/images/SASdatasetEightQueen.jpg)
 ## 1-5.Eliminating 'duplicated' solutions
