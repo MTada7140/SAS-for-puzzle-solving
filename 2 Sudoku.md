@@ -26,14 +26,14 @@
 ### After generating permutations, the next step for solving 'Sudoku' is the selection of permutations which comply to the initial setting of problem and stisfy all the rules. But in this stage we cannot get the final solution(s) because in this stage we only do the checking of single lines only. In order to get final solution(s), we must combine nine candidate solutions as a set and do the checking. But we must do it on the seperate step on the next section. SAS program I created for this section is shown below;
 ![SASpgm selection](/images/SASpgmSelection31.jpg)
 ![SASpgm selection](/images/SASpgmSelection32.jpg)
-### Executing this program, you will get datasets named 'Select1' to 'Select9' which numbers indicate each row of the problem. The datasets contain 'candidate' permutations for each row.  
-![SASdataset1](/images/SASdatasetEightQueen.jpg)
+### Executing this program, you will get datasets named 'Select1' to 'Select9' which numbers indicate each row of the problem. The datasets contain 'candidate' permutations for each row. Several sample images of datasets are shown below; 
+![SASdataset1](/images/SASdatasetSudoku1.jpg)
 ## 1-5.Combinating and checking all the rows
 ### So far we have got the 'candidates' of solutions for each row, the next step should be combine all these candidates and check the 'fitness' of combined lines. If the combination fail to satisfy the rule(s), it must be eliminated. In order to do this, I created a program shown below;
 ![SASpgm selection](/images/SASpgmSelection41.jpg)
 ![SASpgm selection](/images/SASpgmSelection42.jpg)
 ### In this program, I checked 8 'identical' rotated patterns for every single 'solutions'. They are 1)Original sequence, 2-4)Sequences rotated 90,180,270 degrees, 5)Sequence flipped right side left 6-8) Flipped sequences rotated 90,180,270 degrees. And in order to eliminate 'identical' solutions, I used two sorting procedures built in SAS. First one is on the very last of the code shown above 'call sortc', which is used for sort character values in the array. With the result, we get data set like this and it is easy to find 'duplicated' solutions.
-![SASdataset2](/images/SASdatasetEightQueen2.jpg)
+![SASdataset2](/images/SASdatasetSudoku1.jpg)
 ### If you look at the image above carefully, you will notice that there are sevral lines which contain identical set of sequences. 
 ### Another thing we must use is proc sort in the following code;
 ![SASpgm sorting](/images/SASpgmProcSort.jpg)
