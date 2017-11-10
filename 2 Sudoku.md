@@ -34,13 +34,16 @@
 ![SASpgm selection](/images/SASpgmSelection42.jpg)
 ### In the program above, all the 'candidates' of solutions are checked one by one from row 1 through row 9. Below I showed the images of datasets created in the first to fourth iteration of this program. Seeing these images, you can easily find how this program works.
 ![SASdataset2](/images/SASdatasetSudoku2.jpg)
+### When you finish this program, you will see the final answer of this 'Sudoku' problem.
+![SASdataset2](/images/SASdatasetSudoku3.jpg)
+### In this problem, there are two answers found as shown above.
 ## 1-7.Print solutions
-### The final task of this project is to print out the set of solutions. Again, to do this thing, there would be several options including use the external nice drawing programs. But in this case, I would like to stick to SAS program to do this. In SAS, in order to get nice looking output, there is a built in procedure called proc format. Using this, you can get much flexibility on expressing you have got from SAS. In this program I created a user defined format called "$Queen"('$' sign is required in order to show this format is applicable for character data only) to print the final solutions of eight queen. The coding of proc format is shown below;
-![SASpgm foramt](/images/SASpgmProcFormat.jpg)
-### And using this format, you can print the final solution with following code;
-![SASpgm printing](/images/SASpgmProcPrint.jpg)
+### The final task of this project is to print out the set of solutions. To do this, we must transpose the 'Answer' dataset. As you can see from the above image, 'Answer' dataset contains the solutions in the form of concatenated multiple lines. So this is hard to read. To transform the concatenated one to 'single line' form, I created the data step below;
+![SASpgm foramt](/images/SASpgmTransformData.jpg)
+### And using this output dataset, you can print the final solution with following code;
+![SASpgm printing](/images/SASpgmProcPrint2.jpg)
 ### in this code, I used 'noobs' option in order to get print result without observsation(=record) number.
-![Final result](/images/SASresultProcPrint.jpg)
+![Final result](/images/SASresultProcPrint2.jpg)
 
 
 
