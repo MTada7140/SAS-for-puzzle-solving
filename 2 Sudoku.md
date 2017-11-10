@@ -28,17 +28,13 @@
 ![SASpgm selection](/images/SASpgmSelection32.jpg)
 ### Executing this program, you will get datasets named 'Select1' to 'Select9' which numbers indicate each row of the problem. The datasets contain 'candidate' permutations for each row. Several sample images of datasets are shown below; 
 ![SASdataset1](/images/SASdatasetSudoku1.jpg)
-## 1-5.Combinating and checking all the rows
+## 1-6.Combinating and checking all the rows
 ### So far we have got the 'candidates' of solutions for each row, the next step should be combine all these candidates and check the 'fitness' of combined lines. If the combination fail to satisfy the rule(s), it must be eliminated. In order to do this, I created a program shown below;
 ![SASpgm selection](/images/SASpgmSelection41.jpg)
 ![SASpgm selection](/images/SASpgmSelection42.jpg)
-### In this program, I checked 8 'identical' rotated patterns for every single 'solutions'. They are 1)Original sequence, 2-4)Sequences rotated 90,180,270 degrees, 5)Sequence flipped right side left 6-8) Flipped sequences rotated 90,180,270 degrees. And in order to eliminate 'identical' solutions, I used two sorting procedures built in SAS. First one is on the very last of the code shown above 'call sortc', which is used for sort character values in the array. With the result, we get data set like this and it is easy to find 'duplicated' solutions.
-![SASdataset2](/images/SASdatasetSudoku1.jpg)
-### If you look at the image above carefully, you will notice that there are sevral lines which contain identical set of sequences. 
-### Another thing we must use is proc sort in the following code;
-![SASpgm sorting](/images/SASpgmProcSort.jpg)
-### Proc sort can be used for sorting of dataset but it can be used for eliminationg duplicate observations(in the other language it is called 'record')from dataset as well. It is powerful and quite useful. In this case I used 'nodup' option in order to eliminate duplicated solutions. As the result of this elimination, we finally get 12 'distinct' solutions.
-## 1-6.Print solutions
+### In the program above, all the 'candidates' of solutions are checked one by one from row 1 through row 9. Below I showed the images of datasets created in the first to fourth iteration of this program. Seeing these images, you can easily find how this program works.
+![SASdataset2](/images/SASdatasetSudoku2.jpg)
+## 1-7.Print solutions
 ### The final task of this project is to print out the set of solutions. Again, to do this thing, there would be several options including use the external nice drawing programs. But in this case, I would like to stick to SAS program to do this. In SAS, in order to get nice looking output, there is a built in procedure called proc format. Using this, you can get much flexibility on expressing you have got from SAS. In this program I created a user defined format called "$Queen"('$' sign is required in order to show this format is applicable for character data only) to print the final solutions of eight queen. The coding of proc format is shown below;
 ![SASpgm foramt](/images/SASpgmProcFormat.jpg)
 ### And using this format, you can print the final solution with following code;
