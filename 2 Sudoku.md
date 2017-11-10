@@ -8,6 +8,7 @@
 ## 1-3.Reading a problem
 ### Let's start solving Sudoku with step1. For statring this step, you must prepare a problem of Sudoku. Also you must convert the problem into data. Sudoku problem contains numbers and blanks. In SAS, blank is not appropriate, so I use '.'(period) in this article instead of blank. The code I created is shown below. You can replace the section below 'cards' statement with your own problem.
 ![SASpgm ProblemReading](/images/SASpgmProblem.jpg)
+### With the code above, we can store problem into memory area called macro variables(with 'symput' statement) as well as SAS dataset.  
  
 ## 1-4.Generating permutations
 ### To generate permutations, there would be several ways to do it. In this article, I would like to employ an algorithm called "The insert-into-all-positions solution" which I've found on the website called "Type Ocaml"(url:http://typeocaml.com/2015/05/05/permutation/). The idea of this algorithm is quite simple and easy to apply for SAS programming. In this algorithm, we assume that we have already got the entire set of permutations with length of 'n-1'. And when we would like to get the whole set of permutations with length of 'n', we can insert the number of 'n' into every possible position of existing set of permutations. Let's look at the following image to have clearer understanding;
