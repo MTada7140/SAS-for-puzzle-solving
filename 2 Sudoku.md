@@ -10,7 +10,7 @@
 ![SASpgm ProblemReading](/images/SASpgmProblem.jpg)
 ### With the code above, we can store problem into memory area called macro variables(with 'symput' statement) as well as SAS dataset.  
  
-## 1-4.Generating permutations
+## 1-4.Generating permutations(this section is same as Eight Queen)
 ### To generate permutations, there would be several ways to do it. In this article, I would like to employ an algorithm called "The insert-into-all-positions solution" which I've found on the website called "Type Ocaml"(url:http://typeocaml.com/2015/05/05/permutation/). The idea of this algorithm is quite simple and easy to apply for SAS programming. In this algorithm, we assume that we have already got the entire set of permutations with length of 'n-1'. And when we would like to get the whole set of permutations with length of 'n', we can insert the number of 'n' into every possible position of existing set of permutations. Let's look at the following image to have clearer understanding;
 ![Permutation Algorithm](/images/permutation1.jpg)
 ### In the above image, we already have the set of permutations consist of three numbers and trying to have set with length of four. In this case, there are four positions we can insert number '4' into existing permutations.
@@ -19,8 +19,8 @@
 ![SASpgm Permutation](/images/SASpgmPermute.jpg)
 ### In the program above, we reead SAS dataset 'permute3' as input and output 'permute4'. In the input dataset, there is a variable(in the different language, it is called 'column' or 'item') named 'newSerie' which contains one permutation sequence with length of three. And in the 'Do loop' in the middle insert number '4' in the all possible positions of input permutation.
 ### But with the sample above, we must copy and paste the code above several times and modify them. It would not be a good programming practice. To avoid this, I introduced 'macro' feature of SAS program and created the code below.  
-![SASpgm Permutation2](/images/SASpgmPermute2.jpg)
-### All the basic ideas are the same as previous sample, but generalisation by 'macro variable' and 'macro programming' were used in the later one. The last command line "%permute(start=2, stop= 8);" invokes the macro program above and iterates the program seven times with varying macro variable '&num' from 2 to 8. Thus, we can get the entire set of permutations with length of eight. 
+![SASpgm Permutation2](/images/SASpgmPermute3.jpg)
+### All the basic ideas are the same as previous sample, but generalisation by 'macro variable' and 'macro programming' were used in the later one. The last command line "%permute(start=2, stop= 9);" invokes the macro program above and iterates the program seven times with varying macro variable '&num' from 2 to 9. Thus, we can get the entire set of permutations with length of nine. 
 
 ## 1-4.Selecting solutions from whole permutations
 ### The next step for solving 'Eight Queen' is the selection of permutations which stisfy all the rules. All the rules? We already have the candidates of solutions which sutisfy the first two rules ie. *"no two queens share the same row, column"*. The remaining task is only to check whether our potential solutions satisfy *'no two queens share the same diagonal'* only. Checking of sharing diagonal is not so difficult. We must check the horizontal distance and vertical distance of every two queens. If the two distances are same, then the two queens share the same diagonal hence the permutation must be eliminated from theb set of solutions. SAS data set I created for this is shown below;
