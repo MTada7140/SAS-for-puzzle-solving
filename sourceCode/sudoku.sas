@@ -10,7 +10,7 @@
 
 /*///////////////////////////////// 
 /  Reading a problem into memory  /
-/  neme of variable ; l_tot       /
+/  name of variable ; l_tot       /
 /////////////////////////////////*/
 data SudokuProblem;
 length line $9. totLine $100.;
@@ -97,13 +97,13 @@ do i = 1 to 9;
         else if mod(&num, 3) = 2 then do; i1=&num-1; i2=&num+1; end;
         else  do; i1=&num-2; i2=&num-1; end;
     	do j = 1 to 3;
-        	do k = 1 to 3;
+            do k = 1 to 3;
             	do l = 1 to 3;
                 	if  substr(newSerie,(j-1)*3+k,1) = problem{i1,(j-1)*3+l} 
                  	or substr(newSerie,(j-1)*3+k,1) = problem{i2,(j-1)*3+l}
                  	then deletePermute        = 2;
             	end;
-        	end;
+            end;
     	end;
     end;
 end;
@@ -136,7 +136,6 @@ retain totLine '';
 totLine=cats(totLine,result);
 var0="&num";
 call symput('lines'||trim(var0),totLine);
-var=symget('lines'||trim(var0));
 run;
 data answer&num(keep=tempAns tempChk chkFlg);
 length var $10000. var0 $1.;

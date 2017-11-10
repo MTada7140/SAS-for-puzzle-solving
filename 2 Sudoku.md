@@ -26,11 +26,12 @@
 ### After generating permutations, the next step for solving 'Sudoku' is the selection of permutations which comply to the initial setting of problem and stisfy all the rules. But in this stage we cannot get the final solution(s) because in this stage we only do the checking of single lines only. In order to get final solution(s), we must combine nine candidate solutions as a set and do the checking. But we must do it on the seperate step on the next section. SAS program I created for this section is shown below;
 ![SASpgm selection](/images/SASpgmSelection31.jpg)
 ![SASpgm selection](/images/SASpgmSelection32.jpg)
-### With executing program above, 92 'solutions' will be got as follows.
+### Executing this program, you will get datasets named 'Select1' to 'Select9' which numbers indicate each row of the problem. The datasets contain 'candidate' permutations for each row.  
 ![SASdataset1](/images/SASdatasetEightQueen.jpg)
-## 1-5.Eliminating 'duplicated' solutions
-### So far we have got the 'solutions' of Eight Queen puzzle which satisfy all three rules. Is that all? I don't think so. Because there would be duplicate solutions included in the current dataset if we rotate one solution 90 degrees right or left, there would be the same solutions contained. It is not good for us to leave here under this situation. I would like to have pure 'distinct' solutions only. In order to do this, I created a program shown below;
-![SASpgm selection](/images/SASpgmSelection2.jpg)
+## 1-5.Combinating and checking all the rows
+### So far we have got the 'candidates' of solutions for each row, the next step should be combine all these candidates and check the 'fitness' of combined lines. If the combination fail to satisfy the rule(s), it must be eliminated. In order to do this, I created a program shown below;
+![SASpgm selection](/images/SASpgmSelection41.jpg)
+![SASpgm selection](/images/SASpgmSelection42.jpg)
 ### In this program, I checked 8 'identical' rotated patterns for every single 'solutions'. They are 1)Original sequence, 2-4)Sequences rotated 90,180,270 degrees, 5)Sequence flipped right side left 6-8) Flipped sequences rotated 90,180,270 degrees. And in order to eliminate 'identical' solutions, I used two sorting procedures built in SAS. First one is on the very last of the code shown above 'call sortc', which is used for sort character values in the array. With the result, we get data set like this and it is easy to find 'duplicated' solutions.
 ![SASdataset2](/images/SASdatasetEightQueen2.jpg)
 ### If you look at the image above carefully, you will notice that there are sevral lines which contain identical set of sequences. 
